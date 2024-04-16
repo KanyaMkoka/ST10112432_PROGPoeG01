@@ -16,5 +16,20 @@ namespace ST10112432_PROGPart1.Classes
             Ingredients = new Ingredient[numIngredients];
             Procedure = new string[numProcedure];
         }
+
+        public void placeIngredient(int index, string name, double quantity, string unit)
+        {
+            Ingredients[index] = new Ingredient(name, quantity, unit);
+        }
+
+        public void steps (int index, string describeStep)
+        {
+            Step[index] = describeStep;
+        }
+
+        public void recipeScale(double factor)
+        {
+
+        }
     }
 }

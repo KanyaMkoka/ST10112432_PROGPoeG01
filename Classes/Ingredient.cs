@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ST10112432_PROGPart1
+namespace ST10112432_PROGPart1.Classes
 {
     public class Ingredient //defining a class
     {
@@ -26,5 +26,6 @@ namespace ST10112432_PROGPart1
             return $"{Quantity} {Unit} of {Name}";
         }
 
+       
     }
 }
