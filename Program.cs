@@ -12,66 +12,63 @@ namespace ST10112432_PROGPart1
     {
         static void Main(string[] args)
         {
-           try
+            try
             {
-                //asking the User for the number of ingredients and steps
-                Console.WriteLine("Please enter the number of ingredients: ");
+                // Prompting user for number of ingredients and steps
+                Console.WriteLine("Enter the number of ingredients:");
                 int numIngredients = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Please enter the number of steps: ");
-                int numProcedure = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the number of steps:");
+                int numSteps = Convert.ToInt32(Console.ReadLine());
 
-                //creating a recipe object with the specified number of ingredients
-                Recipe rec = new Recipe(numIngredients, numProcedure);
+                // Creating a new recipe object with the specified number of ingredients and steps
+                Recipe recipe = new Recipe(numIngredients, numSteps);
 
-                //Getting details for each ingredient and adding them to the recipe 
-                for(int i = 0; i < numIngredients; i++)
+                // Getting details for each ingredient from the user and adding them to the recipe
+                for (int i = 0; i < numIngredients; i++)
                 {
-                    Console.WriteLine($"Please enter the details for the ingredient {i + 1}:");
-                    Console.WriteLine("Name: ");
+                    Console.WriteLine($"Enter details for ingredient {i + 1}:");
+                    Console.Write("Name: ");
                     string name = Console.ReadLine();
-                    Console.WriteLine("Quantity: ");
+                    Console.Write("Quantity: ");
                     double quantity = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Unit: ");
+                    Console.Write("Unit: ");
                     string unit = Console.ReadLine();
 
-                    Recipe.addIngredient(i, new Ingredient { Name = name, Quantity = quantity, Unit = unit });
-
+                    recipe.AddIngredient(i, new Ingredient { Name = name, Quantity = quantity, Unit = unit });
                 }
-                //Getting details for each step from the user and adding them to the recipe
-                for(int i = 0; i < numProcedure; i++)
+
+                // Getting details for each step from the user and adding them to the recipe
+                for (int i = 0; i < numSteps; i++)
                 {
                     Console.WriteLine($"Enter step {i + 1}:");
                     string description = Console.ReadLine();
 
-                    Recipe.addProcedure(i, new Procedure { Description = description });
+                    recipe.AddStep(i, new Step { Description = description });
                 }
 
-                //display 
-                Recipe.displayRecipe();
+                // Displaying the recipe to the user
+                recipe.DisplayRecipe();
 
-                //Scaling recipe
-                Console.WriteLine("\nPlease enter the scaling factor (0.5, 2, or 3): ");
-                double scaleFactor = Convert.ToDouble(Console.ReadLine());
-                Recipe.scaleRecipe();
+                // Scaling the recipe based on user input
+                Console.WriteLine("\nEnter scaling factor (0.5, 2, or 3):");
+                double scalingFactor = Convert.ToDouble(Console.ReadLine());
+                recipe.ScaleRecipe(scalingFactor);
 
-                Console.WriteLine("\nRecipe after scaling: ");
-                Recipe.displayRecipe();
+                Console.WriteLine("\nRecipe after scaling:");
+                recipe.DisplayRecipe();
 
-
-                //resetting quantities
-                Recipe.resetQuantities();
-
-                //code to clear recipe
-                Recipe.ClearRecipe();
+                // Resetting quantities (implementation pending)
+                // Clearing the recipe for entering a new one
+                recipe.ClearRecipe();
             }
-            catch (FormatException f)
+            catch (FormatException ex)
             {
-                Console.WriteLine($"Error: {f.Message}. Please enter a valid number.");
+                Console.WriteLine($"Error: {ex.Message}. Please enter a valid number.");
             }
-            catch (Exception f)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error: {f.Message}");
+                Console.WriteLine($"Error: {ex.Message}");
             }
         }
     }

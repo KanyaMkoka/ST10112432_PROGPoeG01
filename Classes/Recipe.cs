@@ -9,51 +9,68 @@ namespace ST10112432_PROGPart1.Classes
     //This Recipe class was created to store all the ingredients and steps of the recipe
     public class Recipe
     {
-        public Ingredient[] Ingredients { get; set; }
-        public string[] Procedure { get; set; }
+        private Ingredient[] ingredients; // Array to store ingredients
+        private Steps[] step; // Array to store steps
 
-        public Recipe(int numIngredients, int numProcedure)
-        { 
-            Ingredients = new Ingredient[numIngredients];
-            Procedure = new string[numProcedure];
+        // Constructor to initialize arrays based on the number of ingredients and steps
+        public Recipe(int numIngredients, int numSteps)
+        {
+            ingredients = new Ingredient[numIngredients];
+            step = new Steps[numSteps];
         }
 
-        public void addIngredient(int index, string name, double quantity, string unit)
+        // Method to add an ingredient to the recipe at a specified index
+        public void AddIngredient(int index, Ingredient ingredient)
         {
-            Ingredients[index] = new Ingredient(name, quantity, unit);
+            ingredients[index] = ingredient;
         }
 
-        public void steps (int index, string describeStep)
+        // Method to add a step to the recipe at a specified index
+        public void AddSteps(int index, Steps step)
         {
-            Procedure[index] = describeStep;
+            Steps[index] = step;
         }
 
-        public void displayRecipe()
+        // Method to display the full recipe, including ingredients and steps
+        public void DisplayRecipe()
         {
-            Console.WriteLine("Ingredients: ");
-            foreach (var ingredient in Ingredients)
+            Console.WriteLine("Ingredients:");
+            foreach (var ingredient in ingredients)
             {
-                Console.WriteLine($"{Ingredient.Quantity} {ingredient.Unit} {ingredient.Name}");
+                Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name}");
             }
 
             Console.WriteLine("\nSteps:");
-            for (int i = 0; i < Procedure.Length; i++)
+            for (int i = 0; i < step.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. {Procedure[i].Description}");
+                Console.WriteLine($"{i + 1}. {step[i].Description}");
             }
         }
 
-        public void recipeScale(double factor)
+        // Method to scale the recipe by a specified factor
+        public void ScaleRecipe(double factor)
         {
-            foreach (var ingredients in Ingredient)
+            foreach (var ingredient in ingredients)
             {
-                ingredients.Quantity *= factor;
+                ingredient.Quantity *= factor;
             }
         }
 
-        public void resetQuantities ()
+        // Method to reset ingredient quantities to their original values
+        public void ResetQuantities()
         {
+            for (int i = 0; i < Ingredient.Length; i++)
+            {
+                Ingredient[i].Quantity = originalQuantities[i];
+            }
 
+        }
+
+        // Method to clear all data and start afresh for a new recipe
+        public void ClearRecipe()
+        {
+            Array.Clear(ingredients, 0, ingredients.Length);
+            Array.Clear(step, 0, step.Length);
         }
     }
 }

@@ -8,24 +8,24 @@ namespace ST10112432_PROGPart1.Classes
 {
     public class Ingredient //defining a class
     {
-        //properties storing Name, Quantity and Unit of the ingredient measurement
-        public string Name { get; set; } //name of the ingredient
-        public string Quantity { get; set; } //ingredient Quantity
-        public string Unit {  get; set; } //Measurement unit of the ingredient
+        internal static int Length;
 
-        //initialising ingredient properties using a constructor
-        public Ingredient(string name, double quantity, string unit) 
-        { 
+        //This class represents an ingredient with properties for name, quantity, and unit of measurement.
+        //The properties below stores Name, Quantity and Unit of the ingredient measurements
+        //The name of the ingredient
+        public string Name { get; set; }
+        //Unit of measurement for the ingredient quantity
+        public double Quantity { get; set; }
+        // Quantity of the ingredient
+        public string Unit { get; set; }
+
+        public Ingredient(string name, double quantity, string unit)
+        {
+            //Assigning the provided name to the Name property of the ingredient.
             Name = name;
+
             Quantity = quantity;
             Unit = unit;
         }
-        //ToString method
-        public override string ToString()
-        {
-            return $"{Quantity} {Unit} of {Name}";
-        }
-
-       
     }
 }
