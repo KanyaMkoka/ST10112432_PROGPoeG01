@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ST10112432_PROGPart1.Classes
 {
-    internal class Steps
+    internal class Step
     {
-        //Describing the step
+        //Describing the steps to take
         public string Description { get; set; }
     }
 }

@@ -14,62 +14,65 @@ namespace ST10112432_PROGPart1
         {
             try
             {
-                // Prompting user for number of ingredients and steps
-                Console.WriteLine("Enter the number of ingredients:");
+                Console.WriteLine("Welcome to the Recipe App!");
+
+                Console.WriteLine("Please enter the number of ingredients:");
                 int numIngredients = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Enter the number of steps:");
+                Console.WriteLine("Please enter the number of steps:");
                 int numSteps = Convert.ToInt32(Console.ReadLine());
 
-                // Creating a new recipe object with the specified number of ingredients and steps
                 Recipe recipe = new Recipe(numIngredients, numSteps);
 
-                // Getting details for each ingredient from the user and adding them to the recipe
                 for (int i = 0; i < numIngredients; i++)
                 {
                     Console.WriteLine($"Enter details for ingredient {i + 1}:");
-                    Console.Write("Name: ");
+                    Console.WriteLine("Name:");
                     string name = Console.ReadLine();
-                    Console.Write("Quantity: ");
+                    Console.WriteLine("Quantity:");
                     double quantity = Convert.ToDouble(Console.ReadLine());
-                    Console.Write("Unit: ");
+                    Console.WriteLine("Unit of Measurement:");
                     string unit = Console.ReadLine();
 
-                    recipe.AddIngredient(i, new Ingredient { Name = name, Quantity = quantity, Unit = unit });
+                    recipe.AddIngredient(i, new Ingredient(name, quantity, unit));
                 }
 
-                // Getting details for each step from the user and adding them to the recipe
                 for (int i = 0; i < numSteps; i++)
                 {
                     Console.WriteLine($"Enter step {i + 1}:");
                     string description = Console.ReadLine();
 
-                    recipe.AddStep(i, new Step { Description = description });
+                    recipe.AddStep(i, new steps(description));
+                }  
+
+                recipe.PrintRecipe();
+
+                Console.WriteLine("Enter scaling factor (0.5, 2, or 3):");
+                double factor = Convert.ToDouble(Console.ReadLine());
+                recipe.ScaleRecipe(factor);
+                recipe.PrintRecipe();
+
+                //Reset quantities
+                recipe.ResetQuantities();
+
+                Console.WriteLine("Do you want to enter a new recipe? (yes/no)");
+                string input = Console.ReadLine();
+                if (input.ToLower() == "yes")
+                {
+                    //Clear data to enter a new recipe
+                    recipe.ClearData();
+                    //Repeat process for new recipe
                 }
-
-                // Displaying the recipe to the user
-                recipe.DisplayRecipe();
-
-                // Scaling the recipe based on user input
-                Console.WriteLine("\nEnter scaling factor (0.5, 2, or 3):");
-                double scalingFactor = Convert.ToDouble(Console.ReadLine());
-                recipe.ScaleRecipe(scalingFactor);
-
-                Console.WriteLine("\nRecipe after scaling:");
-                recipe.DisplayRecipe();
-
-                // Resetting quantities (implementation pending)
-                // Clearing the recipe for entering a new one
-                recipe.ClearRecipe();
+                else
+                {
+                    Console.WriteLine("Thank you for using the Recipe App!");
+                }
             }
-            catch (FormatException ex)
+            catch (Exception rec)
             {
-                Console.WriteLine($"Error: {ex.Message}. Please enter a valid number.");
+                Console.WriteLine($"An error occurred: {rec.Message}");
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+        
         }
     }
 }
