@@ -21,10 +21,11 @@ namespace ST10112432_PROGPart1.Classes
 
         public Ingredient(string name, double quantity, string unit)
         {
-            //Assigning the provided name to the Name property of the ingredient.
+            //Assigning the provided name to the Name property of the ingredients.
             Name = name;
-
+            //Assigning the provided quantity to the Quantity property of the ingredients.
             Quantity = quantity;
+            //Assigning the provided unit of measurement to the Unit property of the ingredient.
             Unit = unit;
         }
     }
