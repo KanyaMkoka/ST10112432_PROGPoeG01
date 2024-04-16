@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ST10112432_PROGPart1.Classes
 {
+    //This Recipe class was created to store
     public class Recipe
     {
         public Ingredient[] Ingredients { get; set; }

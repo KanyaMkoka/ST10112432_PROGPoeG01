@@ -55,9 +55,23 @@ namespace ST10112432_PROGPart1
                 double scaleFactor = Convert.ToDouble(Console.ReadLine());
                 Recipe.scaleRecipe();
 
+                Console.WriteLine("\nRecipe after scaling: ");
+                Recipe.displayRecipe();
+
+
                 //resetting quantities
                 Recipe.resetQuantities();
 
+                //code to clear recipe
+                Recipe.ClearRecipe();
+            }
+            catch (FormatException f)
+            {
+                Console.WriteLine($"Error: {f.Message}. Please enter a valid number.");
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine($"Error: {f.Message}");
             }
         }
     }
