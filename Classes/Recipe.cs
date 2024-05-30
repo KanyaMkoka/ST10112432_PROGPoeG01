@@ -92,6 +92,13 @@ namespace ST10112432_PROGPart1.Classes
             return totalCalories;
         }
 
+        private void CalorieCheck ()
+        {
+            if (GetTotalCalories() > 300)
+            {
+                onCalorieNotification?.Invoke($"Warning: The recipe \"{Name}\" exceeeds 300 calories!!");
+            }
+        }
         internal void ClearData()
         {
             throw new NotImplementedException();
