@@ -16,9 +16,19 @@ namespace ST10112432_PROGPart1.Classes
     //This Recipe class was created to store all the ingredients and steps of the recipe
     public class Recipe
     {
-        public 
+        public string Name { get; set; }
         private Ingredient[] ingredients;
         private Step[] steps;
+
+        public delegate void CalorieNotification(string message);
+        public event CalorieNotification onCalorieNotification;
+
+        public Recipe(string name)
+        {
+            Name = name;
+            ingredients = new Ingredient[1];
+            steps = new Step[1];
+        }
 
         public Recipe(int numIngredients, int numSteps)
         {
@@ -26,14 +36,15 @@ namespace ST10112432_PROGPart1.Classes
             steps = new Step[numSteps];
         }
 
-        public void AddIngredient(int index, Ingredient ingredient)
+        public void AddIngredient(Ingredient ingredient)
         {
-            ingredients[index] = ingredient;
+            ingredients.Add(ingredient);
+            CheckCalories();
         }
 
-        public void AddStep(int index, Step step)
+        public void AddStep(Step step)
         {
-            steps[index] = step;
+            steps.Add(step);
         }
 
         public void PrintRecipe()
@@ -42,7 +53,7 @@ namespace ST10112432_PROGPart1.Classes
             Console.WriteLine("Ingredients:");
             foreach (var ingredient in ingredients)
             {
-                Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name}");
+                Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})");
             }
 
             Console.WriteLine("\nSteps:");
@@ -50,6 +61,8 @@ namespace ST10112432_PROGPart1.Classes
             {
                 Console.WriteLine($"{i + 1}. {steps[i].Description}");
             }
+
+            Console.WriteLine($"Total Calories: {GetTotalCalories()}");
         }
 
         public void ScaleRecipe(double factor)

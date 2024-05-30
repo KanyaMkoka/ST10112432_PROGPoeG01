@@ -29,6 +29,8 @@ namespace ST10112432_PROGPart1.Classes
         public double Calories { get; set; }
         //defining ingredient food group
         public string FoodGroup { get; set; }
+        //OriginalQuantity
+        public double OriginalQuantity { get; set; }
 
         public Ingredient(string name, double quantity, string unit, double calories, string foodGroup)
         {
@@ -42,6 +44,8 @@ namespace ST10112432_PROGPart1.Classes
             Calories = calories;
             //Assigning the provided unit of measurement to the FoodGroup property of the ingredients.
             FoodGroup = foodGroup;
+            //Storing OriginalQuantity
+            OriginalQuantity = quantity;
         }
     }
 }
