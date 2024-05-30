@@ -16,6 +16,7 @@ namespace ST10112432_PROGPart1.Classes
     //This Recipe class was created to store all the ingredients and steps of the recipe
     public class Recipe
     {
+        public 
         private Ingredient[] ingredients;
         private Step[] steps;
 

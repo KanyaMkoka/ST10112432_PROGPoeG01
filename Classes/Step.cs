@@ -17,5 +17,11 @@ namespace ST10112432_PROGPart1.Classes
     {
         //Describing the steps to take
         public string Description { get; set; }
+
+        //Constructor initialising the step with a description
+        public Step(String description)
+        {
+            Description = description;
+        }
     }
 }
