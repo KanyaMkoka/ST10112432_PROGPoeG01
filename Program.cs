@@ -118,5 +118,34 @@ namespace ST10112432_PROGPart1
                 }
                 recipes.Add(recipe);
         }
+
+        static void ViewRecipe()
+        {
+            if (recipes.Count == 0)
+            {
+                Console.WriteLine("No recipes available.");
+                return;
+            }
+
+            var sortedRecipes = recipes.OrderBy(recipe => recipe.Name);
+
+            Console.WriteLine("Recipes: ");
+            for (int i = 0; i < sortedRecipes.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {sortedRecipes[i].Name}");
+            }
+            Console.WriteLine("Please enter the number of recipes to view: ");
+            int recipeIndex = Convert.ToInt32(Console.ReadLine()) - 1;
+
+            if (recipeIndex >= 0 && recipeIndex < sortedRecipes.Count)
+            {
+                sortedRecipes[recipeIndex].PrintRecipe();
+            }
+            else
+            {
+                Console.WriteLine("Incorrect Selection.");
+            }
+
+        }
     }
 }
