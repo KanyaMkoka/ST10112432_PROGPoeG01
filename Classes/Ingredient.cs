@@ -25,15 +25,23 @@ namespace ST10112432_PROGPart1.Classes
         public double Quantity { get; set; }
         // Quantity of the ingredient
         public string Unit { get; set; }
+        //Counting the calories
+        public double Calories { get; set; }
+        //defining ingredient food group
+        public string FoodGroup { get; set; }
 
-        public Ingredient(string name, double quantity, string unit)
+        public Ingredient(string name, double quantity, string unit, double calories, string foodGroup)
         {
             //Assigning the provided name to the Name property of the ingredients.
             Name = name;
             //Assigning the provided quantity to the Quantity property of the ingredients.
             Quantity = quantity;
-            //Assigning the provided unit of measurement to the Unit property of the ingredient.
+            //Assigning the provided unit of measurement to the Unit property of the ingredients.
             Unit = unit;
+            //Assigning the provided unit of measurement to the Calories property of the ingredients.
+            Calories = calories;
+            //Assigning the provided unit of measurement to the FoodGroup property of the ingredients.
+            FoodGroup = foodGroup;
         }
     }
 }

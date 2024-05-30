@@ -1,0 +1,39 @@
+Recipe Application: A Step-by-Step Guide
+
+1. Introduction
+The Recipe App is a command-line application developed using C# and Visual Studio. It allows users to enter the details of a recipe, including ingredients and steps, and perform various actions such as scaling the recipe and resetting quantities.
+
+2. Accessing the Code
+To access the code for the Recipe App, follow these steps:
+
+Open your web browser and navigate to https://github.com/KanyaMkoka/ST10112432_PROGPoeG01.git.
+On the GitHub page, you will see the repository containing the code for the Recipe App.
+Click on the "Clone or download" button and select "Download ZIP" to download the code to your computer.
+Extract the downloaded ZIP file to a location of your choice.
+3. Understanding the Code Structure
+The code for the Recipe App is organized into several classes:
+
+Ingredient: Represents an ingredient with properties for name, quantity, and unit of measurement.
+Step: Represents a step in the recipe with a property for the description.
+Recipe: Represents the recipe itself, containing arrays of ingredients and steps, as well as methods for adding ingredients and steps, printing the recipe, scaling the recipe, and resetting quantities.
+Program: Contains the main method that handles user input and interaction.
+4. Running the Application
+To run the Recipe App, follow these steps:
+
+Open Visual Studio (or any other C# IDE) on your computer.
+Open the downloaded project folder in Visual Studio.
+Build the project to ensure that all dependencies are resolved.
+Run the project by clicking the "Start" button or pressing F5.
+Follow the on-screen instructions to enter the details of a recipe and perform actions such as scaling the recipe.
+5. Interacting with the Application
+Once the application is running, you can interact with it using the command-line interface. Here are some key actions you can perform:
+
+Enter the number of ingredients and steps for the recipe.
+Enter the details for each ingredient, including name, quantity, and unit of measurement.
+Enter the description for each step in the recipe.
+View the full recipe, including ingredients and steps.
+Scale the recipe by a factor of 0.5, 2, or 3.
+Reset ingredient quantities to their original values.
+Clear all data to enter a new recipe.
+6. Conclusion
+Congratulations! You have successfully accessed and understood the code for the Recipe App. Feel free to explore the code further and make any modifications or enhancements as needed.
