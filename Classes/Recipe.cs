@@ -73,11 +73,11 @@ namespace ST10112432_PROGPart1.Classes
             }
         }
 
-        public void ResetQuantities(Ingredient ingredients)
+        public void ResetQuantities()
         {
-            for (int i = 0; i < Ingredient.Length; i++)
+            foreach (var ingredient in ingredients)
             {
-                Ingredient[i].Quantity = originalQuantities[i];
+                ingredient.Quantity = ingredient.OriginalQuantity;
             }
 
         }

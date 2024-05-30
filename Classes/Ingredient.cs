@@ -46,6 +46,7 @@ namespace ST10112432_PROGPart1.Classes
             FoodGroup = foodGroup;
             //Storing OriginalQuantity
             OriginalQuantity = quantity;
+
         }
     }
 }
