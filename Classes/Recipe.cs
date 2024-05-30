@@ -82,6 +82,16 @@ namespace ST10112432_PROGPart1.Classes
 
         }
 
+        private double GetTotalCalories()
+        {
+            double totalCalories = 0;
+            foreach (var ingredient in ingredients)
+            {
+                totalCalories += ingredient.Calories * ingredient.Quantity;
+            }
+            return totalCalories;
+        }
+
         internal void ClearData()
         {
             throw new NotImplementedException();
