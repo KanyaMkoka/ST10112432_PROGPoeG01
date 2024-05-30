@@ -99,7 +99,7 @@ namespace ST10112432_PROGPart1.Classes
                 onCalorieNotification?.Invoke($"Warning: The recipe \"{Name}\" exceeeds 300 calories!!");
             }
         }
-        internal void ClearData()
+        /*internal void ClearData()
         {
             throw new NotImplementedException();
         }
@@ -107,6 +107,6 @@ namespace ST10112432_PROGPart1.Classes
         internal void ResetQuantities()
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

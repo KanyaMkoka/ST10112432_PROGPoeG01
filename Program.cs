@@ -80,5 +80,43 @@ namespace ST10112432_PROGPart1
             }
         
         }
+        static void AddRecipe()
+        {
+            Console.WriteLine("Please enter the name of the recipe: ");
+            string recipeName = Console.ReadLine();
+
+            Recipe recipe = new Recipe(recipeName);
+            recipe.onCalorieNotification += Message => Console.WriteLine(Message);
+
+            Console.WriteLine("Please enter the number of ingredients: ");
+            int numIngredients = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < numIngredients;i++)
+            {
+                Console.WriteLine($"Please enter the details for ingredient{i + 1}: ");
+                Console.WriteLine("Name: ");
+                string name = Console.ReadLine();
+                Console.WriteLine("Quantity: ");
+                double quantity = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Unit of Measurement: ");
+                string unit = Console.ReadLine();
+                Console.WriteLine("Calories");
+                double calories = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Food Group: ");
+                string foodGroup = Console.ReadLine();
+
+                recipe.AddIngredient(new Ingredient(name, quantity, unit, foodGroup));
+            }
+            Console.WriteLine("Please enter the number of steps: ");
+            int numSteps = Convert.ToInt32(Console.ReadLine());
+            
+                for(int i = 0; i < numSteps;i++)
+                {
+                  Console.WriteLine($"Enter step{i + 1}: ");
+                  string description = Console.ReadLine();
+                  recipe.AddStep(new Step(description));
+                }
+                recipes.Add(recipe);
+        }
     }
 }
